@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"reflect"
+	"strconv"
 	"time"
 )
 
@@ -74,6 +75,8 @@ func ToString(in interface{}) string {
 		return out.String()
 	case error:
 		return out.Error()
+	case float64:
+		return strconv.FormatFloat(out, 'f', -1, 64)
 	}
 	if val := reflect.ValueOf(in); val.Kind() == reflect.String {
 		return val.String()
