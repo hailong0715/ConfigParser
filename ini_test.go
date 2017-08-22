@@ -78,3 +78,20 @@ func TestStrings(t *testing.T) {
 		t.Error("Get strings failed.")
 	}
 }
+
+func TestSection(t *testing.T) {
+	config, err := NewConfig("ini", "my.ini")
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	var val string
+	val = config.String("mysql::addr")
+	if val != "127.0.0.1" {
+		t.Error("get section data failed.")
+	}
+	valInt, err := config.Int("mysql::port")
+	if valInt != 3306 || err != nil {
+		t.Error("Get int data failed.")
+	}
+}
