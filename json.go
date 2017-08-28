@@ -265,6 +265,10 @@ func (c *JsonCfgContainer) getdata(key string) interface{} {
 	}
 	return nil
 }
+
+func (c *JsonCfgContainer) GetCfgData() interface{} {
+	return c.data
+}
 func init() {
 	Register("json", &JsonConfig{})
 }

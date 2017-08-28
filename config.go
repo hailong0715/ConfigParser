@@ -26,6 +26,7 @@ type Configer interface {
 	GetInerfaceVal(key string) (interface{}, error)       //返回给定key的val，并将val转型为interface{}类型
 	GetSection(section string) (map[string]string, error) //返回某个section下的全部配置
 	SaveConfigFile(filename string) error                 //将配置信息保存到文件
+	GetCfgData() interface{}
 }
 
 //Configer的适配器接口，将配置文件或者数据解析，并返回一个Configer的对象

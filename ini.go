@@ -416,7 +416,9 @@ func (c *IniConfigContainer) getdata(key string) string {
 		}
 	}
 	return ""
-
+}
+func (c *IniConfigContainer) GetCfgData() interface{} {
+	return c.data
 }
 func init() {
 	Register("ini", &IniConfig{})
